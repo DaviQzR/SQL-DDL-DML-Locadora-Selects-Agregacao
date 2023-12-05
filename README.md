@@ -2,55 +2,54 @@
 
 Considere o diagrama abaixo:
 
-![image](https://github.com/DaviQzR/SQL-DDL-DML-Project-Select-Join/assets/125469425/2cdd12f5-82a9-4a70-bd61-a431b77ebab9)
+![image](https://github.com/DaviQzR/SQL-DDL-DML-Locadora-SelectCase-Subquery/assets/125469425/fb56d09d-50e6-4ed3-b59e-36f7c3751d43)
 
-Criar as tabelas da forma que foram diagramadas, obedecendo as seguintes restrições:
+N – atributo NULL
 
---> A coluna users_id da tabela associativa é FK da coluna id, tabela users
+Restrições:
 
---> A coluna projects_id da tabela associativa é FK da coluna id, tabela projects
+--> Ano de filme deve ser menor ou igual a 2021
 
---> A coluna date da tabela projects deve verificar se a data é posterior que 01/09/2014.
-Caso contrário, o registro não deve ser inserido
+--> Data de fabricação de DVD deve ser menor do que hoje
 
---> A PK de projects deve ser de auto incremento, iniciando em 10001, com incremento de
-1
+--> Número do endereço de Cliente deve ser positivo
 
---> A PK de users deve ser de auto incremento, iniciando em 1, com incremento de 1
+--> CEP do endereço de Cliente deve ter, especificamente, 8 caracteres
 
---> O valor padrão da coluna password da tabela users, deverá ser 123mudar
+--> Data de locação de Locação, por padrão, deve ser hoje
 
---> A coluna username da tabela users deve ter restrição de unicidade.
+--> Data de devolução de Locação, deve ser maior que a data de locação
+Valor de Locação deve ser positivo
 
---> Modificar a coluna username da tabela Users para varchar(10)
+Esquema:
+A entidade estrela deveria ter o nome real da estrela, com 50 caracteres
+Verificando um dos nomes de filme, percebeu-se que o nome do filme deveria ser um atributo
+com 80 caracteres
 
---> Modificar a coluna password da tabela Users para varchar(8)
+Considere os dados:
 
-Inserir os dados abaixo:
+![image](https://github.com/DaviQzR/SQL-DDL-DML-Locadora-SelectCase-Subquery/assets/125469425/156bbbf1-b9fc-4775-8d5f-ef2907fbe2d7)
 
-![image](https://github.com/DaviQzR/SQL-DDL-DML-Project-Select-Join/assets/125469425/b62e2044-964c-4b27-ae53-140bcfd0e5fd)
+![image](https://github.com/DaviQzR/SQL-DDL-DML-Locadora-SelectCase-Subquery/assets/125469425/6ecfa037-5a78-4eec-85c1-9059acb5eb63)
 
-Considerar as situações:
+![image](https://github.com/DaviQzR/SQL-DDL-DML-Locadora-SelectCase-Subquery/assets/125469425/57208e16-22ca-4fe1-ae4f-c6445d47af89)
 
-- O projeto de Manutenção atrasou, mudar a data para 12/09/2014
-- O username de aparecido (usar o nome como condição de mudança) está feio, mudar para
-Rh_cido
-- Mudar o password do username Rh_maria (usar o username como condição de mudança)
-para 888@*, mas a condição deve verificar se o password dela ainda é 123mudar
-- O user de id 2 não participa mais do projeto 10002, removê-lo da associativa
-
-Fazer:
+Operações com dados:
 
 
-a) Adicionar User
-(6; Joao; Ti_joao; 123mudar; joao@empresa.com)
+--> Os CEP dos clientes 5503 e 5504 são 08411150 e 02918190 respectivamente
 
-b) Adicionar Project
-(10004; Atualização de Sistemas; Modificação de Sistemas Operacionais nos PC's; 12/09/2014)
+--> A locação de 2021-02-18 do cliente 5502 teve o valor de 3.25 para cada DVD alugado
 
-Consultar: 
+--> A locação de 2021-02-24 do cliente 5501 teve o valor de 3.10 para cada DVD alugado
 
-• Não esquecer de rever as restrições de datas
+--> O DVD 10005 foi fabricado em 2019-07-14
+
+--> O nome real de Miles Teller é Miles Alexander Teller
+
+--> O filme Sing não tem DVD cadastrado e deve ser excluído
+
+Consultar:
 
 1) Consultar, num_cadastro do cliente, nome do cliente, titulo do filme, data_fabricação
 do dvd, valor da locação, dos dvds que tem a maior data de fabricação dentre todos os
